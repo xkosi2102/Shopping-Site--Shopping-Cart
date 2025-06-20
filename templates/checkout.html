@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Checkout</h1>
+<form method="post">
+  <h4>Order Summary</h4>
+  <ul class="list-group mb-3">
+    {% for it in items %}
+    <li class="list-group-item d-flex justify-content-between">
+      <div>{{ it.product.name }} x {{ it.quantity }}</div>
+      <div>${{ '%.2f'|format(it.total) }}</div>
+    </li>
+    {% endfor %}
+    <li class="list-group-item d-flex justify-content-between">
+      <strong>Total</strong><strong>${{ '%.2f'|format(total) }}</strong>
+    </li>
+  </ul>
+  <div class="mb-3">
+    <label for="full_name" class="form-label">Full Name</label>
+    <input type="text" class="form-control" id="full_name" name="full_name" required
+           value="{{ user['full_name'] if user else '' }}">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" required value="{{ user['email'] if user else '' }}">
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="phone" name="phone" required value="{{ user['phone'] if user else '' }}">
+  </div>
+  <div class="mb-3">
+    <label for="address" class="form-label">Address</label>
+    <textarea class="form-control" id="address" name="address" rows="3" required>{{ user['address'] if user else '' }}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="payment_method" class="form-label">Payment Method</label>
+    <select class="form-select" id="payment_method" name="payment_method" required>
+      <option value="card">Card</option>
+      <option value="bank_transfer">Bank Transfer</option>
+      <option value="cash">Cash</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+{% endblock %}

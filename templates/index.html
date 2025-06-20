@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="hero mb-5">
+  <div class="container">
+    <h1>Welcome to LuxShop</h1>
+    <p>Experience luxury shopping like never before.</p>
+  </div>
+</div>
+
+<form method="get" class="row g-2 mb-4">
+  <div class="col-auto">
+    <input type="text"
+           name="search"
+           value="{{ search }}"
+           placeholder="Search products…"
+           class="form-control">
+  </div>
+  <div class="col-auto">
+    <select name="category" class="form-select">
+      {% for c in categories %}
+      <option value="{{c}}" {% if c==selected_category %}selected{% endif %}>
+        {{c.title()}}
+      </option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <select name="sort" class="form-select">
+      <option value="" {% if not selected_sort %}selected{% endif %}>
+        Sort By…
+      </option>
+      <option value="price_asc" {% if selected_sort=='price_asc' %}selected{% endif %}>
+        Price ↑
+      </option>
+      <option value="price_desc" {% if selected_sort=='price_desc' %}selected{% endif %}>
+        Price ↓
+      </option>
+      <option value="rating" {% if selected_sort=='rating' %}selected{% endif %}>
+        Rating
+      </option>
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary">Apply</button>
+  </div>
+</form>
+
+<h1>Products</h1>
+<div class="row">
+  {% for prod in products %}
+  <div class="col-md-3">
+    <div class="card mb-4 card-custom">
+      <a href="{{ url_for('product_detail', id=prod.id) }}">
+        <img src="{{ prod.image }}" class="card-img-top" alt="{{ prod.name }}">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title"><a href="{{ url_for('product_detail', id=prod.id) }}">{{ prod.name }}</a></h5>
+        <p class="card-text">{{ prod.description }}</p>
+        <p>Rating: {{ '%.1f'|format(prod.rating) }} / 5</p>
+        <p><strong>${{ '%.2f'|format(prod.price) }}</strong></p>
+        <a href="{{ url_for('add_item') }}?id={{ prod.id }}" class="btn btn-gold">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

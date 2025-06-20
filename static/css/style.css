@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+    color: #2c2c2c;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.navbar .navbar-brand, .navbar .nav-link {
+    color: #f5f5f5 !important;
+    font-weight: 500;
+}
+
+.navbar .nav-link.active {
+    color: #ffd700 !important;
+    font-weight: 700;
+}
+
+.footer {
+    background-color: #2c2c2c;
+    color: #ccc;
+    padding: 2rem 0;
+}
+
+.footer a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url('https://imgs.search.brave.com/xTeoRFOBBhiVMpddgYqW8gK3CTNIxy8uNQ9CeTCNPm8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTE0/NTYyMjEyL3Bob3Rv/L2dyYXktY29uY3Jl/dGUtd2FsbC5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9aEot/a2NyenZoUFJCUmh5/UjQ2c2RMZmQwWjc0/bk0tZFAzbk9aX3dY/U290cz0');
+    background-size: cover;
+    background-position: center;
+    color: #2c2c2c;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+}
+
+.card-custom .card-title a {
+    color: #6c757d;
+    text-decoration: none; /* Elimină sublinierea */
+    font-weight: 600;
+}
+
+.card-custom .card-title a:hover {
+    color: #5a6268;
+    text-decoration: none;
+}
+
+.btn-gold {
+    background-color: #ffd700;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+
+.btn-gold:hover {
+    background-color: #e6c200;
+}
+
+.cart-image {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+}

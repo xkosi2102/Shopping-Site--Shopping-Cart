@@ -1,0 +1,33 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-5">
+  <h1>Contact Us</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <p>For inquiries, please fill out the form and we'll get back to you shortly.</p>
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Your name">
+        </div>
+        <div class="mb-3">
+          <label for="emailContact" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="emailContact" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="5" placeholder="Your message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold">Send Message</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h5>Our Shop</h5>
+      <p>Strada Cazarmii nr 67<br>Bucharest, Romania</p>
+      <p>Email: support@luxshop.com<br>Phone: +40 727 392 132</p>
+      <img src="https://www.aficotroceni.ro/wp-content/uploads/2017/03/Interior_Beintime-825x510.jpg" class="img-fluid rounded" alt="Office">
+    </div>
+  </div>
+</div>
+{% endblock %}
